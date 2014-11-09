@@ -8,8 +8,9 @@
 /*global define: false, require: false, module: false */
 
 ( function( window ) {
-
 'use strict';
+
+if (!window) return;
 
 var document = window.document;
 // collection of functions to be triggered on ready
@@ -57,16 +58,16 @@ function defineDocReady( eventie ) {
 }
 
 // transport
-if ( typeof define === 'function' && define.amd ) {
+if ( typeof exports === 'object' ) {
+  module.exports = defineDocReady( require('eventie') );
+} else if ( typeof define === 'function' && define.amd ) {
   // AMD
   // if RequireJS, then doc is already ready
   docReady.isReady = typeof requirejs === 'function';
   define( [ 'eventie/eventie' ], defineDocReady );
-} else if ( typeof exports === 'object' ) {
-  module.exports = defineDocReady( require('eventie') );
 } else {
   // browser global
   window.docReady = defineDocReady( window.eventie );
 }
 
-})( window );
+})( typeof window !== 'undefined' ? window : null );
