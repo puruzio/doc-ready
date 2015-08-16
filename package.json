@@ -20,7 +20,7 @@
   },
   "homepage": "https://github.com/desandro/doc-ready",
   "dependencies": {
-    "eventie": "eiriklv/eventie"
+    "eventie": "http://github.com/eiriklv/eventie/archive/c9d290c6aa57712257dc8c0b6bf21c9374190a3c.tar.gz"
   },
   "keywords": [
     "DOM",
